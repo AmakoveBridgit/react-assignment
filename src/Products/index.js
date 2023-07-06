@@ -1,4 +1,6 @@
 import React ,{ useState,useEffect}from "react";
+import './style.css'
+
 
 const Products=()=>{
     const[products,setProducts]=useState([])
@@ -28,11 +30,22 @@ if (loading){
 }
 
  return(
-    <div>
+    <div className="products">
 <h1> All Products</h1>
 {products.map(item=>(
 <div key={item.id}>
     <h2>{item.title}</h2>
+    <img src={item.images[0]} alt={item.title} className="productImage" />
+     <p className="productprice">price &nbsp;ksh{item.price}</p> 
+     <p className="productDiscount">discount&nbsp;{item.discountPercentage}%</p> 
+     <Link to={`/addDetails/${item.id}` }className="button"> 
+     <button type="submit" className="button">More</button >
+
+      </Link>
+
+
+   
+ 
 
     </div>
  )) 
